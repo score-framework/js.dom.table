@@ -443,7 +443,7 @@
             },
 
             _pageForward: function(self) {
-                if ((self.page + 1) * self.options.rowsPerPage > self.filteredIds.length) {
+                if ((self.page + 1) * self.options.rowsPerPage >= self.filteredIds.length) {
                     return;
                 }
                 self.setPage(self.page + 1);
@@ -518,14 +518,14 @@
                         pager.append(forward);
                     }
                     if (self.page > 0) {
-                        back.addClass('score-dom-table-pager__button--active');
+                        back.removeClass('score-dom-table-pager__button--disabled');
                     } else {
-                        back.removeClass('score-dom-table-pager__button--active');
+                        back.addClass('score-dom-table-pager__button--disabled');
                     }
                     if ((self.page + 1) * self.options.rowsPerPage < self.filteredIds.length) {
-                        forward.addClass('score-dom-table-pager__button--active');
+                        forward.removeClass('score-dom-table-pager__button--disabled');
                     } else {
-                        forward.removeClass('score-dom-table-pager__button--active');
+                        forward.addClass('score-dom-table-pager__button--disabled');
                     }
                 }
             }
